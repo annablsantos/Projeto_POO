@@ -5,7 +5,7 @@ public class Poder {
     private int dano;
     private int consumoDeEnergia;
 
-    public SuperPoder(String nome, int dano, int consumoDeEnergia) {
+    public Poder(String nome, int dano, int consumoDeEnergia) {
         this.nome = nome;
         this.setDano(dano);
         this.setConsumoDeEnergia(consumoDeEnergia);
