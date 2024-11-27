@@ -48,4 +48,22 @@ public class Personagem {
             this.energia = 0;
         }
     }
+
+    public String usarPoder(Poder poder) {
+        if(this.getEnergia() < poder.getConsumoDeEnergia()) {
+            this.setEnergia(0);
+            return "O herói não pode usar esse poder, falta energia.";
+        }
+        consumirEnergia(poder.getConsumoDeEnergia());
+        return "O herói " + this.nome + " está atacando usando o " + poder.getNome();
+    }
+
+    public String aprenderPoder(String nomeDoPoder, Poder poder) {
+        if(!poderesEspeciais.containsKey(nomeDoPoder)) {
+            poderesEspeciais.put(nomeDoPoder, poder);
+            return "O herói " + this.nome + " acabou de aprender o poder especial " + nomeDoPoder + "!";
+        } else {
+            return "O herói " + this.nome +  " já aprendeu esse poder especial.";
+        }
+    }
 }

@@ -12,8 +12,8 @@ public class LutaEntreHeroisMain {
         Poder chute = new Poder("Chute", 10, 5);
         Poder soco = new Poder("Soco", 5, 0);
 
-        thor.aprenderPoderEspecial(chute.getNome(), chute);
-        hulk.aprenderPoderEspecial(soco.getNome(), soco);
+        thor.aprenderPoder(chute.getNome(), chute);
+        hulk.aprenderPoder(soco.getNome(), soco);
 
         Luta luta = new Luta(thor, hulk);
 
