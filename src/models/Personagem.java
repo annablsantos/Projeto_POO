@@ -14,14 +14,6 @@ public class Personagem {
         this.poderesEspeciais = new HashMap<>();
     }
 
-    public boolean temPoderEspecial(String nomePoder) {
-        return poderesEspeciais.containsKey(nomePoder);
-    }
-
-    public Map<String, Poder> getPoderesEspeciais() {
-        return poderesEspeciais;
-    }
-
     public String getNome() {
         return nome;
     }
