@@ -22,8 +22,8 @@ public class LutaTest {
         wolverine = new HeroiFisico("Wolverine");
         poderPsiquico = new Poder("Poder psiquico", 10, 5);
         soco = new Poder("Soco", 5, 0);
-        professorX.aprenderPoderEspecial(poderPsiquico.getNome(), poderPsiquico);
-        wolverine.aprenderPoderEspecial(soco.getNome(), soco);
+        professorX.aprenderPoder(poderPsiquico.getNome(), poderPsiquico);
+        wolverine.aprenderPoder(soco.getNome(), soco);
         luta = new Luta(professorX, wolverine);
     }
 

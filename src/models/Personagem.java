@@ -51,11 +51,15 @@ public class Personagem {
     }
 
     public String aprenderPoder(String nomeDoPoder, Poder poder) {
-        if(!poderesEspeciais.containsKey(nomeDoPoder)) {
+        if (poderesEspeciais == null) {
+            poderesEspeciais = new HashMap<>();
+        }
+
+        if (!poderesEspeciais.containsKey(nomeDoPoder)) {
             poderesEspeciais.put(nomeDoPoder, poder);
             return "O heroi " + this.nome + " acabou de aprender o poder especial " + nomeDoPoder + "!";
         } else {
-            return "O heroi " + this.nome +  " ja aprendeu esse poder especial.";
+            return "O heroi " + this.nome + " ja aprendeu esse poder especial.";
         }
     }
 }

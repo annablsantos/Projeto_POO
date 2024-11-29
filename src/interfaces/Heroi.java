@@ -9,5 +9,5 @@ public interface Heroi {
     void consumirVida(int dano);
     boolean temSuperPoder(String nomePoder);
     boolean desviar();
-    String usarSuperPoder(Poder superPoder);
+    void usarSuperPoder(Poder superPoder);
 }

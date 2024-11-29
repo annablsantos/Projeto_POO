@@ -2,20 +2,30 @@ package models;
 
 import interfaces.Heroi;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class HeroiMental extends Personagem implements Heroi {
-    private Poder poderPsiquico;
+    private Map<String, Poder> poderesEspeciais;
 
     public HeroiMental(String nome) {
         super(nome);
+        this.poderesEspeciais = new HashMap<>();
     }
 
-    public void aprenderPoderEspecial(String nomePoder, Poder poder) {
-        this.poderPsiquico = poder;
+    public String aprenderPoder(String nomePoder, Poder poder) {
+        if (!poderesEspeciais.containsKey(nomePoder)) {
+            poderesEspeciais.put(nomePoder, poder);
+            System.out.println("O herói " + getNome() + " acabou de aprender o poder especial " + nomePoder + "!");
+        } else {
+            System.out.println("O herói " + getNome() + " já tem o poder " + nomePoder + ".");
+        }
+        return nomePoder;
     }
 
     @Override
     public boolean temSuperPoder(String nomePoder) {
-        return poderPsiquico != null && poderPsiquico.getNome().equals(nomePoder);
+        return poderesEspeciais.containsKey(nomePoder);
     }
 
     @Override
@@ -24,10 +34,17 @@ public class HeroiMental extends Personagem implements Heroi {
     }
 
     @Override
-    public String usarSuperPoder(Poder superPoder) {
+    public void usarSuperPoder(Poder superPoder) {
         if (temSuperPoder(superPoder.getNome())) {
-            return "O herói " + getNome() + " usou " + superPoder.getNome() + " para atacar!";
+            if (getEnergia() >= superPoder.getConsumoDeEnergia()) {
+                consumirEnergia(superPoder.getConsumoDeEnergia());
+            } else {
+                System.out.println("O herói " + getNome() + " não tem energia suficiente para usar o poder " + superPoder.getNome() + ".");
+            }
+        } else {
+            System.out.println("O herói " + getNome() + " não tem esse poder.");
         }
-        return null;
     }
+
 }
+
